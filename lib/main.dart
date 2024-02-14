@@ -1,6 +1,7 @@
 import 'package:acm_mobile/firebase_options.dart';
 import 'package:acm_mobile/pages/example.dart';
 import 'package:acm_mobile/pages/home.dart';
+import 'package:acm_mobile/pages/profilePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fluro/fluro.dart';
@@ -23,8 +24,14 @@ void main() async {
     return const ExamplePage();
   });
 
+  Handler profilePageHandler = Handler(
+      handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+    return const ProfilePage();
+  });
   router.define("/", handler: homeHandler);
   router.define("/example", handler: exampleHandler);
+
+   router.define("/profilePage", handler: profilePageHandler);
   // router.notFoundHandler = homeHandler;
   runApp(const MyApp());
 }
