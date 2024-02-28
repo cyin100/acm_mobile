@@ -1,3 +1,4 @@
+import 'package:acm_mobile/pages/profile.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -17,7 +18,19 @@ class _HomePageState extends State<HomePage> {
         title: Text("SCU ACM")
       ),
       body: Center(
-        child: Text("Welcome to the SCU ACM app!")
+        child: ListView(
+          children: [
+            const Text("SCU ACM HOME SCREEN"),
+            ElevatedButton(
+              child: const Text('Go to Profile'),
+              onPressed: () =>
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ProfilePage())),
+          
+            ),
+          ]
+        ),
+        
+        
       )
     );
   }

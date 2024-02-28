@@ -45,5 +45,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Upload a Profile Picture using camera roll</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Take a picture</string>
 </dict>
 </plist>

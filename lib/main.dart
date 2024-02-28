@@ -1,7 +1,7 @@
 import 'package:acm_mobile/firebase_options.dart';
 import 'package:acm_mobile/pages/example.dart';
 import 'package:acm_mobile/pages/home.dart';
-import 'package:acm_mobile/pages/login.dart';
+import 'package:acm_mobile/pages/profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fluro/fluro.dart';
@@ -23,14 +23,14 @@ void main() async {
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
     return const ExamplePage();
   });
-  Handler loginHandler = Handler(
+  Handler profileHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
-    return const LoginPage();
+    return const ProfilePage();
   });
   router.define("/", handler: homeHandler);
   router.define("/example", handler: exampleHandler);
-   router.define("/login", handler: loginHandler);
-  // router.notFoundHandler = homeHandler;
+  router.define("/profile", handler: profileHandler);
+  router.notFoundHandler = homeHandler;
   runApp(const MyApp());
 }
 final router = FluroRouter();
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(28, 85, 141, 1.0)),
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromRGBO(28, 85, 141, 1.0)),
           useMaterial3: true,
         ),
         onGenerateRoute: router.generator,      ),
